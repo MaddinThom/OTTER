@@ -121,6 +121,7 @@ bool loadShaders() {
 	glCompileShader(fs);
 
 	shader_program = glCreateProgram();
+
 	glAttachShader(shader_program, fs);
 	glAttachShader(shader_program, vs);
 	glLinkProgram(shader_program);
