@@ -58,6 +58,8 @@ bool Shader::LoadShaderPart(const char* source, GLenum type)
 	default: LOG_WARN("Not implemented"); break;
 	}
 
+	return status != GL_FALSE;
+
 }
 
 bool Shader::LoadShaderPartFromFile(const char* path, GLenum type) {
