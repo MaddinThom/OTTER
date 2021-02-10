@@ -96,7 +96,11 @@ bool initGLFW() {
 #endif
 	
 	//Create a new GLFW window
+<<<<<<< HEAD
 	window = glfwCreateWindow(800, 800, "100751351", nullptr, nullptr);
+=======
+	window = glfwCreateWindow(800, 800, "INFR1350U", nullptr, nullptr);
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 	glfwMakeContextCurrent(window);
 
 	// Set our window resized callback
@@ -209,7 +213,11 @@ void SetupShaderForFrame(const Shader::sptr& shader, const glm::mat4& view, cons
 	shader->SetUniformMatrix("u_View", view);
 	shader->SetUniformMatrix("u_ViewProjection", projection * view);
 	shader->SetUniformMatrix("u_SkyboxMatrix", projection * glm::mat4(glm::mat3(view)));
+<<<<<<< HEAD
 	glm::vec3 camPos = glm::inverse(view)[3];// * glm::vec4(0,0,0,1);
+=======
+	glm::vec3 camPos = glm::inverse(view) * glm::vec4(0,0,0,1);
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 	shader->SetUniform("u_CamPos", camPos);
 }
 
@@ -333,11 +341,18 @@ int main() {
 		Texture2D::sptr diffuse = Texture2D::LoadFromFile("images/Stone_001_Diffuse.png");
 		Texture2D::sptr diffuse2 = Texture2D::LoadFromFile("images/box.bmp");
 		Texture2D::sptr specular = Texture2D::LoadFromFile("images/Stone_001_Specular.png"); 
+<<<<<<< HEAD
 		Texture2D::sptr reflectivity = Texture2D::LoadFromFile("images/Reflectivity.png");
 
 		// Load the cube map
 		//TextureCubeMap::sptr environmentMap = TextureCubeMap::LoadFromImages("images/cubemaps/skybox/sample.jpg");
 		TextureCubeMap::sptr environmentMap = TextureCubeMap::LoadFromImages("images/cubemaps/skybox/ocean.jpg"); 
+=======
+
+		// Load the cube map
+		TextureCubeMap::sptr environmentMap = TextureCubeMap::LoadFromImages("images/cubemaps/skybox/sample.jpg");
+		//TextureCubeMap::sptr environmentMap = TextureCubeMap::LoadFromImages("images/cubemaps/skybox/ocean.jpg"); 
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 
 		// Creating an empty texture
 		Texture2DDescription desc = Texture2DDescription();
@@ -383,8 +398,12 @@ int main() {
 		ShaderMaterial::sptr reflectiveMat = ShaderMaterial::Create();
 		reflectiveMat->Shader = reflectiveShader;
 		reflectiveMat->Set("s_Environment", environmentMap);
+<<<<<<< HEAD
 		reflectiveMat->Set("u_EnvironmentRotation", glm::mat3(glm::rotate(glm::mat4(1.0f),
 			glm::radians(90.0f), glm::vec3(1, 0, 0))));
+=======
+		// TODO: send the rotation to apply to the skybox
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 
 		GameObject sceneObj = scene->CreateEntity("scene_geo");
 		{
@@ -448,9 +467,15 @@ int main() {
 
 			// We'll make our camera a component of the camera object
 			Camera& camera = cameraObject.emplace<Camera>();// Camera::Create();
+<<<<<<< HEAD
 			//camera.SetPosition(glm::vec3(0, 3, 3));
 			//camera.SetUp(glm::vec3(0, 0, 1));
 			//camera.LookAt(glm::vec3(0));
+=======
+			camera.SetPosition(glm::vec3(0, 3, 3));
+			camera.SetUp(glm::vec3(0, 0, 1));
+			camera.LookAt(glm::vec3(0));
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 			camera.SetFovDegrees(90.0f); // Set an initial FOV
 			camera.SetOrthoHeight(3.0f);
 			BehaviourBinding::Bind<CameraControlBehaviour>(cameraObject);
@@ -470,8 +495,12 @@ int main() {
 			ShaderMaterial::sptr skyboxMat = ShaderMaterial::Create();
 			skyboxMat->Shader = skybox;  
 			skyboxMat->Set("s_Environment", environmentMap);
+<<<<<<< HEAD
 			skyboxMat->Set("u_EnvironmentRotation", glm::mat3(glm::rotate(glm::mat4(1.0f),
 				glm::radians(90.0f), glm::vec3(1, 0, 0))));
+=======
+			// TODO: send the rotation to apply to the skybox
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 			skyboxMat->RenderLayer = 100;
 
 			MeshBuilder<VertexPosNormTexCol> mesh;

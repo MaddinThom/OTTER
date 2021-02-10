@@ -14,6 +14,7 @@ out vec4 frag_color;
 
 // https://learnopengl.com/Advanced-Lighting/Advanced-Lighting
 void main() {
+<<<<<<< HEAD
 	// Calculate the reflected model
 	vec3 N = normalize(inNormal);
 	vec3 toEye = normalize(inPos - u_CamPos);
@@ -24,4 +25,7 @@ void main() {
 
 	// For now just return result
 	frag_color = vec4(environment, 1.0);
+=======
+	frag_color = vec4(1, 0, 0, 1.0);
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 }

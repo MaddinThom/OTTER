@@ -6,6 +6,7 @@ TextureCubeMap::TextureCubeMap(const TextureCubeDesc& description) :
 }
 
 void TextureCubeMap::_RecreateTexture() {
+<<<<<<< HEAD
 	if (_handle != 0) {
 		glDeleteTextures(1, &_handle);
 		_handle = 0;
@@ -50,6 +51,13 @@ void TextureCubeMap::LoadData(const TextureCubeMapData::sptr& data) {
 	if (_description.GenerateMipMaps) {
 		glGenerateTextureMipmap(_handle);
 	}
+=======
+
+}
+
+void TextureCubeMap::LoadData(const TextureCubeMapData::sptr& data) {
+
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 }
 
 TextureCubeMap::sptr TextureCubeMap::LoadFromImages(const std::string& path)

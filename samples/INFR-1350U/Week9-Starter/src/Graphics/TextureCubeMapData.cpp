@@ -20,6 +20,7 @@ TextureCubeMapData::~TextureCubeMapData() {
 
 TextureCubeMapData::sptr TextureCubeMapData::CreateFromImages(const std::vector<Texture2DData::sptr>& images)
 {
+<<<<<<< HEAD
 	LOG_ASSERT(images.size() == 6, "Must pass in exactly 6 images");
 
 	// We'll grab our settings from the first image and assume that they're the same everywhere
@@ -35,6 +36,9 @@ TextureCubeMapData::sptr TextureCubeMapData::CreateFromImages(const std::vector<
 	}
 
 	return result;
+=======
+	return nullptr;
+>>>>>>> a21a451905e58a359e5bc28a314730632251449d
 }
 
 TextureCubeMapData::sptr TextureCubeMapData::LoadFromImages(const std::string& rootImagePath) {
