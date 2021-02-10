@@ -53,11 +53,15 @@ void GlDebugMessage(GLenum source, GLenum type, GLuint id, GLenum severity, GLsi
 
 GLFWwindow* window;
 
+<<<<<<< HEAD
 void GlfwWindowResizedCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height); 
 }
 
 bool initGLFW() {
+=======
+bool InitGLFW() {
+>>>>>>> a69fc8f31bb952dc70bf95b2e9bd3f6468aff66b
 	if (glfwInit() == GLFW_FALSE) {
 		LOG_ERROR("Failed to initialize GLFW");
 		return false;
@@ -73,7 +77,7 @@ bool initGLFW() {
 	return true;
 }
 
-bool initGLAD() {
+bool InitGLAD() {
 	if (gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) == 0) {
 		LOG_ERROR("Failed to initialize Glad");
 		return false;
@@ -85,11 +89,11 @@ int main() {
 	Logger::Init(); // We'll borrow the logger from the toolkit, but we need to initialize it
 
 	//Initialize GLFW
-	if (!initGLFW())
+	if (!InitGLFW())
 		return 1;
 
 	//Initialize GLAD
-	if (!initGLAD())
+	if (!InitGLAD())
 		return 1;
 
 	// Let OpenGL know that we want debug output, and route it to our handler function
